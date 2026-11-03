@@ -1,0 +1,537 @@
+<!doctype html><html><head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kelab Bina Badan Adaptif</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;1,700;1,800;1,900&family=Barlow:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* Layout: dark stage, gold light. Full-width bands with a 1120px inner wrapper;
+   the logo's swoosh is reused as the divider motif. Single deliberate dark look. */
+:root{
+  --bg:#0b0a09;
+  --bg-2:#12100d;
+  --surface:#181511;
+  --line:#2c261c;
+  --fg:#efe9dc;
+  --muted:#a89f8d;
+  --gold:#c9973a;
+  --gold-hi:#f1d58e;
+  --gold-lo:#8a6420;
+  --gold-grad:linear-gradient(180deg,#f6dc9a 0%,#d5a443 48%,#9a6f22 100%);
+  --f-display:'Barlow Condensed','Arial Narrow',Impact,sans-serif;
+  --f-body:'Barlow','Noto Sans SC',system-ui,-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+  --f-zh:'Noto Sans SC','PingFang SC','Microsoft YaHei',system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--f-body);font-size:17px;line-height:1.7;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  -webkit-font-smoothing:antialiased;
+}
+html[data-lang="zh"] body{font-family:var(--f-zh);line-height:1.85}
+html[data-lang="zh"] .en,html[data-lang="en"] .zh,html:not([data-lang]) .en{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto}
+section{padding-block:clamp(56px,9vw,104px)}
+.band{margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band.alt{background:var(--bg-2);border-block:1px solid var(--line)}
+
+/* type */
+.display{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:.98;text-wrap:balance}
+html[data-lang="zh"] .display{font-family:var(--f-zh);font-style:normal;font-weight:900;text-transform:none;letter-spacing:.02em;line-height:1.2}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.label{font-family:var(--f-body);font-weight:600;font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+html[data-lang="zh"] .label{letter-spacing:.3em}
+h2{font-size:clamp(2.2rem,5.4vw,3.9rem);margin:10px 0 0}
+h3{margin:0}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--muted);max-width:62ch;margin:20px 0 0}
+p{margin:0 0 1em;max-width:65ch}
+.sec-head{margin-bottom:clamp(32px,5vw,56px)}
+
+/* header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(11,10,9,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  margin-left:calc(-1*max(16px,env(safe-area-inset-left,0px)));margin-right:calc(-1*max(16px,env(safe-area-inset-right,0px)));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+.bar{max-width:1120px;margin:0 auto;display:flex;align-items:center;gap:20px;height:62px}
+.brand{font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:1.15rem;letter-spacing:.03em;text-decoration:none;white-space:nowrap;line-height:1}
+.brand b{font-weight:800}
+nav{display:flex;gap:22px;margin-left:auto}
+nav a{font-size:.86rem;text-decoration:none;color:var(--muted);letter-spacing:.06em;white-space:nowrap}
+nav a:hover{color:var(--gold-hi)}
+.lang{display:flex;border:1px solid var(--gold-lo);border-radius:3px;overflow:hidden;flex:none}
+.lang button{all:unset;cursor:pointer;padding:5px 11px;font-size:.8rem;font-weight:600;letter-spacing:.08em;color:var(--muted);font-family:var(--f-body)}
+.lang button[aria-pressed="true"]{background:var(--gold);color:#1a1307}
+.lang button:focus-visible{outline:2px solid var(--gold-hi);outline-offset:-2px}
+@media (max-width:860px){nav{display:none}.lang{margin-left:auto}}
+@media (max-width:560px){.brand span:not(.gold-text){display:none!important}.bar{gap:12px}}
+
+/* hero */
+.hero{padding-block:clamp(36px,6vw,72px) clamp(48px,7vw,88px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-10% -20% auto;height:90%;background:radial-gradient(ellipse 50% 60% at 50% 38%,rgba(201,151,58,.22),transparent 70%);pointer-events:none}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,5vw,72px);align-items:center}
+.hero-logo{width:100%;max-width:520px;height:auto;justify-self:center;background:#fff;border:1px solid var(--gold);box-shadow:0 0 0 8px rgba(201,151,58,.12),0 30px 80px -30px rgba(201,151,58,.45)}
+.hero h1{font-size:clamp(2.4rem,6.2vw,4.6rem);margin:14px 0 0}
+.motto{display:flex;flex-wrap:wrap;gap:6px 18px;margin:26px 0 0;font-weight:600;font-size:.9rem;letter-spacing:.3em;text-transform:uppercase}
+.motto span{display:flex;align-items:center;gap:18px}
+.motto span+span::before{content:"";width:5px;height:5px;background:var(--gold);transform:rotate(45deg)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;font-weight:600;font-size:.95rem;letter-spacing:.06em;text-decoration:none;border-radius:2px;border:1px solid var(--gold);transition:transform .15s,background .15s,color .15s}
+.btn.solid{background:var(--gold-grad);color:#1a1307;border-color:transparent}
+.btn.solid:hover{transform:translateY(-2px)}
+.btn.ghost{color:var(--gold-hi)}
+.btn.ghost:hover{background:rgba(201,151,58,.12)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-logo{order:-1;max-width:340px}}
+
+/* swoosh divider */
+.swoosh{display:block;width:100%;height:34px;margin:0}
+
+/* mission */
+.pillars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px)}
+.pillar{padding:28px 28px 8px;background:var(--surface);border-top:2px solid var(--gold);min-width:0}
+.pillar h3{font-size:1.35rem;font-weight:700;line-height:1.3;margin-bottom:14px}
+html[data-lang="zh"] .pillar h3{font-weight:700}
+.pillar p{color:var(--muted);font-size:.98rem}
+.pillar p.pull{color:var(--fg);font-weight:500}
+.mission-end{margin-top:clamp(36px,5vw,56px);padding:clamp(24px,4vw,40px);border:1px solid var(--gold-lo);position:relative}
+.mission-end .display{font-size:clamp(1.5rem,3.4vw,2.4rem);margin:0}
+@media (max-width:720px){.pillars{grid-template-columns:1fr}}
+
+/* founder */
+.founder{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,80px);align-items:start}
+.photo{position:sticky;top:90px}
+.photo-frame{position:relative;padding:10px;border:1px solid var(--gold-lo)}
+.photo-frame::after{content:"";position:absolute;inset:-9px 9px 9px -9px;border:1px solid rgba(201,151,58,.35);pointer-events:none;z-index:0}
+.photo img{display:block;width:100%;height:auto;position:relative;z-index:1}
+.photo figcaption{margin-top:18px}
+.photo figcaption strong{display:block;font-family:var(--f-display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:1.6rem;letter-spacing:.03em;line-height:1.1}
+.photo figcaption span{color:var(--muted);font-size:.9rem}
+.photo-wrap{max-width:420px}
+.story h2{margin-bottom:6px}
+.story .sub{color:var(--gold-hi);font-weight:500;font-size:1.08rem;max-width:56ch;margin:16px 0 28px}
+.story h3{font-size:1.15rem;font-weight:700;color:var(--gold-hi);margin:34px 0 10px}
+.story p{color:#d6cfbf}
+blockquote{margin:30px 0 0;padding:4px 0 4px 22px;border-left:3px solid var(--gold);font-size:1.15rem;font-weight:500;color:var(--fg);max-width:56ch}
+@media (max-width:860px){.founder{grid-template-columns:1fr}.photo{position:static}.photo-wrap{max-width:340px}}
+
+/* timeline (real chronology) */
+.timeline{list-style:none;margin:0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;left:78px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--gold),var(--gold-lo) 80%,transparent)}
+.timeline li{display:grid;grid-template-columns:78px 1fr;gap:0 28px;padding:0 0 26px;position:relative;min-width:0}
+.timeline li::before{content:"";position:absolute;left:74px;top:10px;width:9px;height:9px;background:var(--gold);transform:rotate(45deg)}
+.timeline li:last-child{padding-bottom:0}
+.yr{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.9rem;line-height:1.1;color:var(--gold-hi)}
+.timeline .ev{padding-left:18px;color:#d6cfbf;font-size:.98rem;min-width:0}
+.timeline .ev b{color:var(--fg);font-weight:600}
+.tl-wrap{margin-top:clamp(40px,6vw,72px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.tl-wrap h3{font-size:1.1rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.medals{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding-left:18px}
+.chip{font-size:.78rem;font-weight:600;letter-spacing:.06em;padding:3px 10px;border:1px solid var(--gold-lo);color:var(--gold-hi);border-radius:2px;white-space:nowrap}
+
+/* why / purpose */
+.why{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px)}
+.aims{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.aims li{padding:20px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:14px 1fr;gap:0 16px;min-width:0}
+.aims li:last-child{border-bottom:1px solid var(--line)}
+.aims li::before{content:"";width:7px;height:7px;background:var(--gold);transform:rotate(45deg);margin-top:.75em}
+.aims h3{font-size:1.08rem;font-weight:700;margin-bottom:4px}
+.aims p{color:var(--muted);font-size:.96rem;margin:0}
+.real{background:var(--surface);padding:clamp(24px,4vw,40px);align-self:start;border-top:2px solid var(--gold)}
+.real h3{font-size:1.3rem;font-weight:700;color:var(--gold-hi);margin-bottom:16px}
+.real p{color:#d6cfbf}
+.real .sign{margin:22px 0 0;font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.3rem;text-transform:uppercase;letter-spacing:.04em}
+@media (max-width:860px){.why{grid-template-columns:1fr}}
+
+/* direction */
+.dirs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.dir{background:var(--bg);padding:30px 26px;min-width:0}
+.dir h3{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--gold-hi)}
+.dir p{color:var(--muted);font-size:.96rem;margin:0}
+.dirs .dir:nth-child(4){grid-column:span 1}
+.note{margin-top:32px;color:var(--fg);font-weight:500;max-width:64ch}
+@media (max-width:900px){.dirs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.dirs{grid-template-columns:1fr}}
+
+/* vision */
+.vision{text-align:center;position:relative;overflow:hidden}
+.vision::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(201,151,58,.16),transparent 72%);pointer-events:none}
+.vision .inner{position:relative;max-width:860px;margin:0 auto}
+.vision .big{font-size:clamp(1.9rem,5vw,3.6rem);margin:18px 0 26px}
+.vision p{margin-inline:auto;color:#d6cfbf}
+.vision .tag{margin-top:34px;font-weight:600;letter-spacing:.34em;font-size:.9rem;text-transform:uppercase}
+.vm-h{font-size:1.05rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:28px 0 0}
+.vm-block{position:relative;margin-top:clamp(48px,7vw,80px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+.misi{list-style:none;counter-reset:m;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);text-align:left}
+.misi li{counter-increment:m;background:var(--bg);padding:28px 26px;min-width:0}
+.misi li::before{content:"0" counter(m);display:block;font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.9rem;line-height:1;color:var(--gold-hi);margin-bottom:12px}
+.misi h3{font-size:1.12rem;font-weight:700;margin-bottom:8px}
+.misi p{color:var(--muted);font-size:.96rem;margin:0}
+.values{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.values li{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:150px;padding:18px 20px;background:var(--surface);border-top:2px solid var(--gold)}
+.values b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.25rem;text-transform:uppercase;letter-spacing:.03em}
+.values li span{color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.misi{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.misi{grid-template-columns:1fr}.values li{min-width:0;flex:1 1 40%}}
+
+/* membership */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,32px);align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);padding:clamp(26px,4vw,40px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.plan.feature{border-color:var(--gold);box-shadow:0 0 0 1px rgba(201,151,58,.25),0 20px 60px -30px rgba(201,151,58,.5)}
+.plan h3{font-size:1.2rem;font-weight:700;line-height:1.35}
+.price{display:flex;align-items:baseline;gap:10px;margin:4px 0}
+.price .amt{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:3.6rem;line-height:1}
+.price .per{color:var(--muted);font-size:.95rem}
+.plan p{color:var(--muted);font-size:.97rem;margin:0}
+.rules{margin-top:clamp(28px,4vw,44px);padding:24px 28px;border-left:3px solid var(--gold);background:var(--bg-2)}
+.rules h3{font-size:1.05rem;font-weight:700;color:var(--gold-hi);margin-bottom:8px}
+.rules p{margin:0 0 .5em;color:#d6cfbf;font-size:.96rem}
+.rules p:last-child{margin:0}
+.promo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center;margin-bottom:clamp(24px,3.5vw,36px);padding:clamp(22px,3.5vw,32px);border:1px solid var(--gold);background:linear-gradient(135deg,rgba(201,151,58,.16),rgba(201,151,58,.04));min-width:0}
+.promo h3{font-size:1.25rem;font-weight:700;line-height:1.4;margin:6px 0 8px}
+.promo p{margin:0;color:#d6cfbf;font-size:.97rem}
+.promo .badge{display:inline-block;padding:3px 12px;border:1px solid var(--gold);color:var(--gold-hi);font-size:.82rem;font-weight:600;letter-spacing:.08em}
+.promo .tel{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(1.8rem,4vw,2.4rem);line-height:1;text-decoration:none;white-space:nowrap}
+.promo .tel-box{display:grid;gap:6px;justify-items:start}
+.promo .tel-box .small{color:var(--muted);font-size:.86rem}
+.price .was{color:var(--muted);text-decoration:line-through;font-size:1.4rem;font-family:var(--f-display);font-style:italic;font-weight:700}
+.plan .note{color:var(--gold-hi);font-size:.9rem;font-weight:600}
+.foot .phone{color:var(--gold-hi);text-decoration:none;font-weight:600}
+.foot .phone:hover{text-decoration:underline}
+@media (max-width:720px){.plans,.promo{grid-template-columns:1fr}}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding-block:48px 56px}
+.foot{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:center;justify-content:space-between}
+.foot img{height:150px;width:auto;max-width:100%;background:#fff;border:1px solid var(--gold)}
+.foot .col{display:grid;gap:6px;min-width:0}
+.foot .small{color:var(--muted);font-size:.86rem}
+.ig{display:inline-flex;align-items:center;gap:10px;color:var(--gold-hi);text-decoration:none;font-weight:600}
+.ig:hover{text-decoration:underline}
+.ico{width:22px;height:22px;flex:none;border-radius:6px;object-fit:cover}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+
+<header class="top">
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Kelab Bina Badan Adaptif"><span class="gold-text">KBBA</span> <span style="color:var(--fg);font-weight:600;letter-spacing:.12em;font-size:.8rem;margin-left:6px" class="en">Adaptive Bodybuilding Club</span><span style="color:var(--fg);font-weight:500;letter-spacing:.12em;font-size:.82rem;margin-left:6px;font-family:var(--f-zh);font-style:normal" class="zh">适应性健美俱乐部</span></a>
+    <nav aria-label="Main">
+      <a href="#mission"><span class="zh">使命</span><span class="en">Mission</span></a>
+      <a href="#founder"><span class="zh">创办人</span><span class="en">Founder</span></a>
+      <a href="#purpose"><span class="zh">初衷</span><span class="en">Purpose</span></a>
+      <a href="#direction"><span class="zh">发展方向</span><span class="en">Direction</span></a>
+      <a href="#vision"><span class="zh">愿景使命</span><span class="en">Vision</span></a>
+      <a href="#membership"><span class="zh">会员</span><span class="en">Membership</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language / 语言">
+      <button type="button" id="b-zh" data-set="zh" aria-pressed="true">中文</button>
+      <button type="button" id="b-en" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero band">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="label"><span class="zh">马来西亚 · Adaptive Bodybuilding</span><span class="en">Malaysia · Adaptive Bodybuilding</span></div>
+        <h1 class="display">
+          <span class="zh">不同的身体，<br><span class="gold-text">同样拥有追求卓越的机会</span></span>
+          <span class="en">Different bodies.<br><span class="gold-text">The same chance to pursue excellence.</span></span>
+        </h1>
+        <p class="lead">
+          <span class="zh">KELAB BINA BADAN ADAPTIF 为马来西亚的 OKU（残障人士）创造参与健美运动及竞技比赛的机会，让更多人从参与者，成为站上舞台的运动员。</span>
+          <span class="en">KELAB BINA BADAN ADAPTIF creates opportunities for Malaysians with disabilities (OKU) to take part in bodybuilding and competition, so more people can go from participant to athlete on stage.</span>
+        </p>
+        <div class="motto gold-text" aria-label="Adaptive. Natural. Excellence.">
+          <span>Adaptive</span><span>Natural</span><span>Excellence</span>
+        </div>
+        <div class="cta">
+          <a class="btn solid" href="#membership"><span class="zh">加入俱乐部</span><span class="en">Join the club</span></a>
+          <a class="btn ghost" href="https://www.instagram.com/kelab_bina_badan_adaptif/" target="_blank" rel="noopener"><img class="ico" src="icon-instagram.jpg" alt="" width="22" height="22"><span class="zh">Instagram 关注我们</span><span class="en">Follow on Instagram</span></a>
+        </div>
+      </div>
+      <img class="hero-logo" src="logo-white.jpg" alt="Kelab Bina Badan Adaptif logo: a bodybuilder in a wheelchair and a standing female athlete, both flexing" width="1100" height="1100">
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label"><span class="zh">核心理念与使命</span><span class="en">Philosophy &amp; Mission</span></div>
+        <h2 class="display"><span class="zh">健美，不应该只是<span class="gold-text">健全人士</span>的舞台</span><span class="en">Bodybuilding is not only a stage for the <span class="gold-text">able-bodied</span></span></h2>
+        <p class="lead">
+          <span class="zh">每个人都应该拥有展示自己、挑战自己及参与竞技体育的机会。对 OKU 运动员而言，参赛不只是为了奖牌，更是通过运动建立自信、突破自我，并向社会展示他们的能力与价值。</span>
+          <span class="en">Everyone deserves the chance to show who they are, test themselves and compete. For OKU athletes, competing is about more than medals. It builds confidence, breaks personal limits and shows society what they are capable of.</span>
+        </p>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar">
+          <h3><span class="zh">打破社会对残障人士的刻板印象</span><span class="en">Break the stereotypes about disability</span></h3>
+          <p><span class="zh">社会往往从身体的限制来看待 OKU 群体，却忽略了他们同样拥有梦想、目标及追求卓越的能力。</span><span class="en">Society often sees OKU through their physical limits, and overlooks that they have dreams, goals and the drive to excel.</span></p>
+          <p class="pull"><span class="zh">我们希望社会看到的，是他们为了实现目标所付出的努力。</span><span class="en">We want people to see the effort behind every goal they chase.</span></p>
+        </article>
+        <article class="pillar">
+          <h3><span class="zh">建立自信，从参与者成为运动员</span><span class="en">Build confidence: from participant to athlete</span></h3>
+          <p><span class="zh">身体的限制、社会眼光及缺乏机会，可能让一些 OKU 人士逐渐失去自信。站上比赛舞台，面对评委与观众，获得的不只是比赛经验，更是一份对自己的肯定。</span><span class="en">Physical limits, social attitudes and a lack of opportunity can wear down confidence. Standing in front of judges and an audience gives more than competition experience. It gives self-recognition.</span></p>
+          <p class="pull"><span class="zh">不只是需要帮助的人，也是有梦想、有目标、有能力的运动员。</span><span class="en">Not only a person who needs help, but an athlete with dreams, goals and ability.</span></p>
+        </article>
+        <article class="pillar">
+          <h3><span class="zh">创造公平及包容的竞技机会</span><span class="en">Create fair and inclusive competition</span></h3>
+          <p><span class="zh">OKU 运动员在身体条件、肌肉控制、活动能力及训练方式上可能与一般运动员不同。我们推动更具包容性的 Adaptive Bodybuilding，并关注赛事资讯、参赛渠道与合作资源。</span><span class="en">OKU athletes may differ in physical condition, muscle control, mobility and training methods. We push for more inclusive Adaptive Bodybuilding and follow event information, entry routes and partnerships.</span></p>
+          <p class="pull"><span class="zh">目标不是要求每个人达到相同的条件，而是让不同身体能力的人，都能在适合自己的环境中发挥潜能。</span><span class="en">The goal is not for everyone to meet the same standard, but for every body to compete in an environment that suits it.</span></p>
+        </article>
+        <article class="pillar">
+          <h3><span class="zh">培育马来西亚 Adaptive Bodybuilding 人才</span><span class="en">Develop Malaysian Adaptive Bodybuilding talent</span></h3>
+          <p><span class="zh">我们希望发掘更多有潜力的 OKU 健美运动员，鼓励他们参与本地及国际自然健美赛事，并与体育组织、赛事单位、教练及企业建立合作，争取比赛机会、技术资源与赞助。</span><span class="en">We want to find more promising OKU bodybuilders and encourage them to enter local and international natural bodybuilding events, working with sports bodies, organisers, coaches and companies for competition places, technical support and sponsorship.</span></p>
+          <p class="pull"><span class="zh">让本地运动员未来有机会站上国际舞台。</span><span class="en">So Malaysian athletes can one day stand on the international stage.</span></p>
+        </article>
+      </div>
+
+      <div class="mission-end">
+        <p class="display" style="max-width:none"><span class="zh">最终目标：让 OKU 不只是观看比赛的人，也能够成为<span class="gold-text">站在舞台上的运动员</span>。</span><span class="en">Our end goal: OKU are not only people who watch the competition. They compete in it.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <div class="band alt">
+    <section id="founder">
+      <div class="wrap">
+        <div class="founder">
+          <div class="photo-wrap">
+            <figure class="photo" style="margin:0">
+              <div class="photo-frame"><img src="founder.jpg" alt="Wilson Siao holding a bodybuilding trophy on stage" width="558" height="1140" loading="lazy"></div>
+              <figcaption>
+                <strong>Wilson Siao</strong>
+                <span><span class="zh">创办人 · 脑性麻痹（Cerebral Palsy）健美运动员</span><span class="en">Founder · Bodybuilder with Cerebral Palsy</span></span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="story">
+            <div class="label"><span class="zh">创办人的故事</span><span class="en">The Founder's Story</span></div>
+            <h2 class="display"><span class="zh">从无法独立行走的孩子，到<span class="gold-text">国际赛场</span></span><span class="en">From a child who could not walk alone to the <span class="gold-text">international stage</span></span></h2>
+            <p class="sub"><span class="zh">从一个无法独立行走的孩子，到站上国际健美比赛舞台的 Adaptive Bodybuilding 运动员。</span><span class="en">From a child who could not walk independently to an Adaptive Bodybuilding athlete on international stages.</span></p>
+
+            <p><span class="zh">KELAB BINA BADAN ADAPTIF 的创办理念，源自创办人 Wilson Siao 自己的人生经历。他是一名马来西亚健美运动员，也是脑性麻痹（Cerebral Palsy）人士。</span><span class="en">The idea behind KELAB BINA BADAN ADAPTIF comes from the life of its founder, Wilson Siao, a Malaysian bodybuilder who lives with Cerebral Palsy.</span></p>
+
+            <h3><span class="zh">从小面对身体上的挑战</span><span class="en">Facing physical challenges from childhood</span></h3>
+            <p><span class="zh">Wilson 从出生开始，便因为脑性麻痹而面对身体协调、肌肉控制及行动方面的困难。小时候的他无法像其他孩子一样自由地站立、行走及活动。他经历了长期的复健及身体训练，母亲一直陪伴在身边，给予支持与鼓励。对一个曾经无法独立行走的孩子来说，一步一步学会站立及行走，本身已经是一段非常不容易的过程。</span><span class="en">Cerebral Palsy affected Wilson's coordination, muscle control and movement from birth. As a child he could not stand, walk or move as freely as other children. He went through long-term rehabilitation and physical training, with his mother beside him, giving support and encouragement. Learning to stand and walk, one step at a time, was already a long road.</span></p>
+
+            <h3><span class="zh">健美，成为改变人生的起点</span><span class="en">Bodybuilding became the turning point</span></h3>
+            <p><span class="zh">15 岁那年，他第一次踏入健身房，开始接触重量训练。对一般人来说简单的动作，对他而言可能是很大的挑战：肌肉控制、肌肉痉挛、动作稳定性，都需要更多时间反复练习。他没有放弃，通过不断训练、调整动作与坚持，一步一步提升自己。对他来说，健身房是证明能力、突破限制的地方。</span><span class="en">At 15 he walked into a gym for the first time and began weight training. Movements that look simple to most people were a real challenge for him: muscle control, spasms and stability all needed more time and repetition. He kept going, adjusting his technique and building himself up step by step. For Wilson, the gym became the place to prove his ability and push past his limits.</span></p>
+
+            <blockquote><span class="zh">身体上的限制，不应该成为一个人放弃梦想的理由。</span><span class="en">A physical limit should never be a reason to give up on a dream.</span></blockquote>
+          </div>
+        </div>
+
+        <div class="tl-wrap">
+          <h3><span class="zh">Wilson Siao｜个人经历与比赛成绩</span><span class="en">Wilson Siao · Journey &amp; Competition Results</span></h3>
+          <ol class="timeline">
+            <li><span class="yr">2018</span><div class="ev"><span class="zh"><b>开始接触健身，</b>正式踏上健美之路。</span><span class="en"><b>Starts training</b> and sets out on the bodybuilding path.</span></div></li>
+            <li><span class="yr">2022</span><div class="ev"><span class="zh"><b>参与 Mr. Perak 健美比赛嘉宾展示（Guest Posing）。</b></span><span class="en"><b>Guest posing at the Mr. Perak bodybuilding contest.</b></span></div></li>
+            <li><span class="yr">2023</span><div class="ev"><span class="zh"><b>首次参加 Mr. Perak 健美比赛。</b></span><span class="en"><b>First competes at the Mr. Perak bodybuilding contest.</b></span></div></li>
+            <li><span class="yr">2024</span><div class="ev"><span class="zh"><b>参加 WNBF Macau</b></span><span class="en"><b>Competes at WNBF Macau</b></span>
+              <div class="medals"><span class="chip">Bodybuilding Special Award</span></div></div></li>
+            <li><span class="yr">2024</span><div class="ev"><span class="zh"><b>参加 WNBF Malaysia</b></span><span class="en"><b>Competes at WNBF Malaysia</b></span>
+              <div class="medals"><span class="chip">Bodybuilding Special Award</span><span class="chip"><span class="zh">Junior Men's Physique 第四名</span><span class="en">4th · Junior Men's Physique</span></span></div></div></li>
+            <li><span class="yr">2024</span><div class="ev"><span class="zh"><b>受邀参加 NPC Natural Regional Malaysia</b></span><span class="en"><b>Invited to NPC Natural Regional Malaysia</b></span>
+              <div class="medals"><span class="chip">Bodybuilding Special Award</span><span class="chip"><span class="zh">Junior B Men's Physique 第四名</span><span class="en">4th · Junior B Men's Physique</span></span></div></div></li>
+            <li><span class="yr">2025</span><div class="ev"><span class="zh"><b>受邀前往澳大利亚参加 WNBF Australia 比赛。</b></span><span class="en"><b>Invited to compete at WNBF Australia.</b></span>
+              <div class="medals"><span class="chip"><span class="zh">Adaptive Bodybuilding（残障人士组）Bodybuilding Special Award</span><span class="en">Bodybuilding Special Award · Adaptive Bodybuilding</span></span><span class="chip"><span class="zh">Junior Men's Physique 铜牌（第三名）</span><span class="en">Bronze (3rd) · Junior Men's Physique</span></span></div></div></li>
+            <li><span class="yr">2026</span><div class="ev"><span class="zh"><b>创办并正式成立 KELAB BINA BADAN ADAPTIF，</b>致力于推动 Adaptive Bodybuilding 与 Natural Bodybuilding，并为更多 Adaptive Athletes 创造参与健美竞技比赛的机会。</span><span class="en"><b>Founds and officially establishes KELAB BINA BADAN ADAPTIF</b> to promote Adaptive and Natural Bodybuilding and create more chances for adaptive athletes to compete.</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- PURPOSE -->
+  <section id="purpose">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label"><span class="zh">创办初衷</span><span class="en">Founder's Purpose</span></div>
+        <h2 class="display"><span class="zh">从实现自己的梦想，到帮助<span class="gold-text">更多人</span>实现梦想</span><span class="en">From chasing his own dream to helping <span class="gold-text">more people</span> chase theirs</span></h2>
+        <p class="lead"><span class="zh">在参加不同比赛的过程中，Wilson 开始思考马来西亚 OKU 运动员的发展机会。有些人缺少信心，有些人缺少资讯，也有些人缺少一个愿意为他们争取机会的平台。</span><span class="en">Competing at different events, Wilson began to think about the opportunities open to OKU athletes in Malaysia. Some lack confidence, some lack information, and some lack a platform willing to fight for their chance.</span></p>
+      </div>
+
+      <div class="why">
+        <ul class="aims">
+          <li><div><h3><span class="zh">帮助 OKU 运动员参加比赛</span><span class="en">Help OKU athletes compete</span></h3><p><span class="zh">提供比赛资讯、报名方向及必要的参赛协助，让他们有机会站上正式比赛舞台。</span><span class="en">Share event information, entry guidance and the support needed to reach an official stage.</span></p></div></li>
+          <li><div><h3><span class="zh">推动 Adaptive Bodybuilding</span><span class="en">Advance Adaptive Bodybuilding</span></h3><p><span class="zh">让更多人认识自适应健美，改变对 OKU 运动员的刻板印象。</span><span class="en">Help more people understand the sport and change how OKU athletes are seen.</span></p></div></li>
+          <li><div><h3><span class="zh">建立支持 OKU 运动员的平台</span><span class="en">Build a platform that supports OKU athletes</span></h3><p><span class="zh">让有相同兴趣与梦想的人，不再因为缺乏资讯或资源而轻易放弃。</span><span class="en">So people who share the same interest and dream do not give up for lack of information or resources.</span></p></div></li>
+          <li><div><h3><span class="zh">争取更多比赛及发展资源</span><span class="en">Win more competition and development resources</span></h3><p><span class="zh">与体育组织、比赛主办单位及企业合作，争取参赛机会、赞助及必要支持。</span><span class="en">Work with sports bodies, organisers and companies for entries, sponsorship and support.</span></p></div></li>
+          <li><div><h3><span class="zh">推广自然健美及其他体育活动</span><span class="en">Promote natural bodybuilding and other sports</span></h3><p><span class="zh">除了 Adaptive Bodybuilding，也推动 Natural Bodybuilding、跑步及其他适合不同人士参与的活动。</span><span class="en">Beyond Adaptive Bodybuilding, we also encourage Natural Bodybuilding, running and other activities open to different abilities.</span></p></div></li>
+        </ul>
+
+        <aside class="real">
+          <h3><span class="zh">我创办这个俱乐部的真正想法</span><span class="en">Why I really started this club</span></h3>
+          <p><span class="zh">我创办这个俱乐部，并不是为了让自己的名字更加出名，也不只是为了成立一个组织。</span><span class="en">I did not start this club to make my own name known, or just to set up an organisation.</span></p>
+          <p><span class="zh">我希望自己走过的路，能够成为其他 OKU 人士的参考；我曾经获得的比赛机会，也希望未来能够让更多人拥有。</span><span class="en">I hope the road I walked can be a reference for other OKU, and that the chances I received can reach more people in future.</span></p>
+          <p><span class="zh">我不希望只有我一个人站在健美比赛舞台上。我希望看到更多马来西亚 OKU 运动员参与比赛，展示自己的努力，争取属于自己的荣誉。</span><span class="en">I do not want to be the only one on the bodybuilding stage. I want to see more Malaysian OKU athletes compete, show their effort and earn their own honour.</span></p>
+          <p class="sign gold-text">Wilson Siao</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIRECTION -->
+  <div class="band alt">
+    <section id="direction">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="label"><span class="zh">未来发展方向</span><span class="en">Where we are heading</span></div>
+          <h2 class="display"><span class="zh">不只是健美俱乐部，更是连接机会的<span class="gold-text">平台</span></span><span class="en">More than a club. A <span class="gold-text">platform</span> that connects athletes to opportunity</span></h2>
+        </div>
+        <div class="dirs">
+          <div class="dir"><h3><span class="zh">协助 OKU 运动员参与比赛</span><span class="en">Help OKU athletes enter competitions</span></h3><p><span class="zh">寻找适合 OKU 运动员的健美赛事，提供赛事资讯、报名方向及必要的参赛协助。</span><span class="en">Find suitable bodybuilding events and provide event information, entry guidance and support.</span></p></div>
+          <div class="dir"><h3><span class="zh">推动 Adaptive Bodybuilding</span><span class="en">Promote Adaptive Bodybuilding</span></h3><p><span class="zh">提高社会对这项运动的认识，鼓励更多 OKU 人士了解并参与。</span><span class="en">Raise awareness of the sport and encourage more OKU to learn about it and join in.</span></p></div>
+          <div class="dir"><h3><span class="zh">发掘及培养有潜力的运动员</span><span class="en">Find and develop promising athletes</span></h3><p><span class="zh">鼓励有兴趣的人接触健美，逐步建立自己的训练目标与竞技方向。</span><span class="en">Invite interested people into bodybuilding and help them build their own training goals and competitive direction.</span></p></div>
+          <div class="dir"><h3><span class="zh">争取资源与外部支持</span><span class="en">Secure resources and outside support</span></h3><p><span class="zh">与体育组织、赛事主办单位、企业及赞助商合作，争取参赛、技术及资源支持。</span><span class="en">Partner with sports bodies, organisers, companies and sponsors for entry, technical and resource support.</span></p></div>
+          <div class="dir"><h3><span class="zh">拓展更多运动参与机会</span><span class="en">Widen sporting opportunities</span></h3><p><span class="zh">除了健美，也逐步推动跑步及其他适合不同身体能力人士参与的体育活动。</span><span class="en">Beyond bodybuilding, gradually bring in running and other sports for different physical abilities.</span></p></div>
+        </div>
+        <p class="note"><span class="zh">我们不希望俱乐部只停留在一个名称，而是希望通过实际行动，让更多人获得参与体育运动的机会。</span><span class="en">We do not want the club to stay a name. We want real action that gives more people a way into sport.</span></p>
+      </div>
+    </section>
+  </div>
+
+  <!-- VISION & MISSION -->
+  <div class="vision band">
+    <section id="vision">
+      <div class="inner">
+        <div class="label"><span class="zh">愿景与使命 2026 · Visi &amp; Misi</span><span class="en">Vision &amp; Mission 2026 · Visi &amp; Misi</span></div>
+        <h2 class="vm-h"><span class="zh">VISI（愿景）</span><span class="en">VISI (Vision)</span></h2>
+        <p class="display big"><span class="zh">成为马来西亚具有影响力的 Adaptive Bodybuilding 体育组织，为 OKU 人士创造更多参与健美运动及本地与国际竞技比赛的机会，建立一个<span class="gold-text">公平、包容及充满机会</span>的体育环境。</span><span class="en">To be an influential Adaptive Bodybuilding organisation in Malaysia, creating more opportunities for OKU to take part in bodybuilding and in local and international competition, and building a sporting environment that is <span class="gold-text">fair, inclusive and full of opportunity</span>.</span></p>
+        <p><span class="zh">我们不以身体上的限制定义一个人的能力。Wilson Siao 的故事是俱乐部的起点，但目标不只是延续一个人的故事，而是帮助更多人创造属于自己的故事。真正的突破，是让更多原本没有机会的人，终于有机会站上舞台。</span><span class="en">We do not define a person by physical limits. Wilson Siao's story is where the club begins, but the aim is to help more people write their own. A real breakthrough is not one person winning a medal. It is people who never had a chance finally getting onto the stage.</span></p>
+      </div>
+
+      <div class="vm-block">
+        <h2 class="vm-h"><span class="zh">MISI（使命）</span><span class="en">MISI (Mission)</span></h2>
+        <ol class="misi">
+          <li><h3><span class="zh">提供竞技机会</span><span class="en">Provide competition opportunities</span></h3><p><span class="zh">协助 OKU 人士寻找及参与本地和国际健美比赛。</span><span class="en">Help OKU find and enter local and international bodybuilding competitions.</span></p></li>
+          <li><h3><span class="zh">推动 Adaptive Bodybuilding</span><span class="en">Advance Adaptive Bodybuilding</span></h3><p><span class="zh">提高社会对自适应健美运动的认识，促进马来西亚 Adaptive Bodybuilding 的发展。</span><span class="en">Raise public awareness of adaptive bodybuilding and grow the sport in Malaysia.</span></p></li>
+          <li><h3><span class="zh">支持 OKU 运动员</span><span class="en">Support OKU athletes</span></h3><p><span class="zh">鼓励 OKU 人士参与体育运动，建立自信，发挥个人潜能。</span><span class="en">Encourage OKU to take up sport, build confidence and reach their potential.</span></p></li>
+          <li><h3><span class="zh">争取比赛资源</span><span class="en">Secure competition resources</span></h3><p><span class="zh">与体育组织、赛事主办单位及企业建立联系，为 OKU 运动员争取参赛机会、赞助及必要支持。</span><span class="en">Build links with sports bodies, event organisers and companies to win entries, sponsorship and support for OKU athletes.</span></p></li>
+          <li><h3><span class="zh">推广自然健美</span><span class="en">Promote natural bodybuilding</span></h3><p><span class="zh">鼓励 Natural Bodybuilding，推动健康、自律及公平竞争的体育精神。</span><span class="en">Encourage Natural Bodybuilding and a sporting spirit of health, discipline and fair competition.</span></p></li>
+          <li><h3><span class="zh">发展多元体育活动</span><span class="en">Develop a range of sports</span></h3><p><span class="zh">推动健美、跑步及其他适合不同身体能力人士参与的体育活动。</span><span class="en">Promote bodybuilding, running and other sports open to people of different physical abilities.</span></p></li>
+        </ol>
+      </div>
+
+      <div class="vm-block inner">
+        <h2 class="vm-h"><span class="zh">CORE VALUES（核心价值）</span><span class="en">Core Values</span></h2>
+        <ul class="values">
+          <li><b>Inclusivity</b><span class="zh">包容</span></li>
+          <li><b>Equality</b><span class="zh">平等</span></li>
+          <li><b>Opportunity</b><span class="zh">机会</span></li>
+          <li><b>Discipline</b><span class="zh">自律</span></li>
+          <li><b>Excellence</b><span class="zh">卓越</span></li>
+        </ul>
+        <div class="tag gold-text">Adaptive · Natural · Excellence</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MEMBERSHIP -->
+  <section id="membership">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="label"><span class="zh">会员收费制度</span><span class="en">Membership Fees</span></div>
+        <h2 class="display"><span class="zh">加入 <span class="gold-text">KELAB BINA BADAN ADAPTIF</span></span><span class="en">Join <span class="gold-text">KELAB BINA BADAN ADAPTIF</span></span></h2>
+      </div>
+
+      <div class="promo" role="note">
+        <div>
+          <span class="badge"><span class="zh">现正开放招收会员</span><span class="en">Now accepting members</span></span>
+          <h3><span class="zh">年满 18 岁或以上即可申请入会 · <span class="gold-text">2026 年至 2027 年 2 月会员费全免</span></span><span class="en">Open to applicants aged 18 and above · <span class="gold-text">membership fees fully waived from 2026 to February 2027</span></span></h3>
+          <p><span class="zh">优惠期间，所有类别会员均无需缴付会员费。欢迎来电或 WhatsApp 查询及报名。</span><span class="en">During this period no membership fee is charged for any category. Call or WhatsApp us to ask or sign up.</span></p>
+        </div>
+        <div class="tel-box">
+          <span class="small"><span class="zh">联络电话</span><span class="en">Phone</span></span>
+          <a class="tel gold-text" href="tel:+601157717543">011-5771 7543</a>
+        </div>
+      </div>
+
+      <div class="plans">
+        <article class="plan feature">
+          <div class="label"><span class="zh">残障运动员</span><span class="en">For athletes with disabilities</span></div>
+          <h3>Adaptive Athlete Membership<br><span class="zh" style="color:var(--gold-hi)">免费会员</span><span class="en" style="color:var(--gold-hi)">Free membership</span></h3>
+          <div class="price"><span class="amt gold-text"><span class="zh">免费</span><span class="en">Free</span></span></div>
+          <p><span class="zh">欢迎符合俱乐部规定的 Adaptive Athlete（残障运动员）加入，无需缴付年度会员费。</span><span class="en">Adaptive Athletes (athletes with disabilities) who meet the club's requirements are welcome to join with no annual fee.</span></p>
+        </article>
+        <article class="plan">
+          <div class="label"><span class="zh">支持者与爱好者</span><span class="en">For enthusiasts &amp; supporters</span></div>
+          <h3>Ordinary Membership<br><span class="zh" style="color:var(--gold-hi)">普通会员</span><span class="en" style="color:var(--gold-hi)">Standard membership</span></h3>
+          <div class="price"><span class="amt gold-text"><span class="zh">免费</span><span class="en">Free</span></span><span class="was">RM60</span><span class="per"><span class="zh">/ 每年</span><span class="en">/ year</span></span></div>
+          <p class="note"><span class="zh">2026 年至 2027 年 2 月会员费全免</span><span class="en">Fee waived from 2026 to February 2027</span></p>
+          <p><span class="zh">优惠期结束后：年费 RM60，另需缴付注册费 RM30。</span><span class="en">After the promotion: RM60 per year, plus an RM30 registration fee.</span></p>
+          <p><span class="zh">开放给健美爱好者、健身人士，以及希望支持本俱乐部宗旨的支持者加入。</span><span class="en">Open to bodybuilding fans, fitness enthusiasts and supporters of the club's mission.</span></p>
+        </article>
+      </div>
+
+      <div class="rules">
+        <h3><span class="zh">俱乐部宗旨与入会须知</span><span class="en">Club purpose &amp; joining notes</span></h3>
+        <p><span class="zh">本俱乐部致力于推广 Adaptive Bodybuilding（适应性健美运动），并协助会员了解及寻找自然健美比赛的参与机会。</span><span class="en">The club promotes Adaptive Bodybuilding and helps members learn about and find opportunities to compete in natural bodybuilding events.</span></p>
+        <p><span class="zh">申请人须年满 18 岁或以上。</span><span class="en">Applicants must be aged 18 or above.</span></p>
+        <p><span class="zh">所有会员申请均须符合俱乐部会员条例，并经过俱乐部审核批准。</span><span class="en">All membership applications must meet the club's membership rules and be reviewed and approved by the club.</span></p>
+      </div>
+
+      <div class="cta">
+        <a class="btn solid" href="tel:+601157717543"><span class="zh">致电报名 011-5771 7543</span><span class="en">Call to apply 011-5771 7543</span></a>
+        <a class="btn ghost" href="https://wa.me/601157717543" target="_blank" rel="noopener"><img class="ico" src="icon-whatsapp.jpg" alt="" width="22" height="22"><span class="zh">WhatsApp 报名</span><span class="en">Apply via WhatsApp</span></a>
+        <a class="btn ghost" href="https://www.instagram.com/kelab_bina_badan_adaptif/" target="_blank" rel="noopener"><img class="ico" src="icon-instagram.jpg" alt="" width="22" height="22"><span class="zh">通过 Instagram 联系申请</span><span class="en">Apply via Instagram</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="band">
+  <div class="wrap foot">
+    <img src="logo-white.jpg" alt="Kelab Bina Badan Adaptif" width="1100" height="1100" loading="lazy">
+    <div class="col">
+      <a class="ig" href="https://www.instagram.com/kelab_bina_badan_adaptif/" target="_blank" rel="noopener">
+        <img class="ico" src="icon-instagram.jpg" alt="" width="22" height="22">
+        @kelab_bina_badan_adaptif
+      </a>
+      <a class="ig" href="https://wa.me/601157717543" target="_blank" rel="noopener">
+        <img class="ico" src="icon-whatsapp.jpg" alt="" width="22" height="22">
+        <span class="zh">WhatsApp 联系</span><span class="en">WhatsApp us</span>
+      </a>
+      <a class="phone" href="tel:+601157717543"><span class="zh">电话：</span><span class="en">Phone: </span>011-5771 7543</a>
+      <span class="small"><span class="zh">不同的身体，同样拥有追求卓越的机会。</span><span class="en">Different bodies. The same chance to pursue excellence.</span></span>
+      <span class="small">© 2026 KELAB BINA BADAN ADAPTIF · ADAPTIVE. NATURAL. EXCELLENCE.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, KEY='kbba-lang';
+  function apply(l){
+    root.setAttribute('data-lang',l);
+    root.lang=l==='zh'?'zh-Hans':'en';
+    document.getElementById('b-zh').setAttribute('aria-pressed',String(l==='zh'));
+    document.getElementById('b-en').setAttribute('aria-pressed',String(l==='en'));
+    document.title=l==='zh'?'KELAB BINA BADAN ADAPTIF 适应性健美俱乐部':'Kelab Bina Badan Adaptif';
+  }
+  var saved=null;
+  try{saved=localStorage.getItem(KEY)}catch(e){}
+  apply(saved==='en'||saved==='zh'?saved:'zh');
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var l=b.getAttribute('data-set'); apply(l);
+      try{localStorage.setItem(KEY,l)}catch(e){}
+    });
+  });
+})();
+</script>
+
+</body></html>
